@@ -8,10 +8,6 @@ A simple application which takes a long URL and returns a short one that provide
 `export FLASP_APP=app.py`  
 `flask run`
 
-* To create a database, open a python shell and execute:  
-`from app import db`  
-`db.create_all()`
-
 # User stroies 
 
 * As a user, I want to submit a URL in order to receive a shortened URL to the same webpage
@@ -24,3 +20,5 @@ A simple application which takes a long URL and returns a short one that provide
 # Potential improvements
 
 * If url submitted is invalid, return relevant error message when trying to access the page via short url provided
+
+* Testing

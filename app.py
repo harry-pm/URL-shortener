@@ -15,6 +15,10 @@ class URL(db.Model):
     def __repr__(self):
         return '<URL %r>' % self.id
 
+@app.before_first_request
+def create_tables():
+    db.create_all()
+
 @app.route('/')
 def index():
     return render_template('index.html')
