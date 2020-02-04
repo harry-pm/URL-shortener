@@ -4,7 +4,15 @@ A simple application which takes a long URL and returns a short one that provide
 
 # Setup
 
-To be completed
+* To run on a local server, in terminal (ensuring you are in the root directory and have pip installed Flask), execute:  
+`export FLASP_APP=app.py`  
+`flask run`
+
+* To create a database, open a python shell and execute:  
+`from app import db`  
+`db.create_all()`
+
+(More steps may be added)
 
 # User stroies 
 
