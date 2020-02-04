@@ -1,6 +1,5 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///URLS.db'
@@ -9,13 +8,16 @@ db = SQLAlchemy(app)
 
 class URL(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    # add columns to model here
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    long_url = db.Column(db.String)
+    short_url = db.Column(db.String)
 
     def __repr__(self):
         return '<URL %r>' % self.id
 
 @app.route('/')
 def index():
-    return "sup B Ting"
+    return render_template('index.html')
 
+@app.route('/conversion', methods=['POST'])
+def conversion():
+    return 'new url!'
