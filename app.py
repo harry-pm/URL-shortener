@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -28,3 +28,9 @@ def conversion():
         return render_template('result.html', id=new_url.id)
     except:
         return "There was an error converting your URL"
+
+@app.route('/<int:id>', methods=['GET'])
+def redirector(id):
+    long_url = URL.query.get_or_404(id)
+    return redirect("http://" + long_url.long_url, code=302)
+
