@@ -12,17 +12,15 @@ A simple application which takes a long URL and returns a short one that provide
 `from app import db`  
 `db.create_all()`
 
-(More steps may be added)
-
 # User stroies 
 
 * As a user, I want to submit a URL in order to receive a shortened URL to the same webpage
-
-More user stories may be added
 
 # Technologies
 
 * Flask
 * Python
 
-More technologies may be added
+# Potential improvements
+
+* If url submitted is invalid, return relevant error message when trying to access the page via short url provided
