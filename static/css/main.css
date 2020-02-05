@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: bolder;
+    color: rgb(63, 133, 74);
+    font-size: 70px;
+    text-shadow: 4px 4px 4px #aaa;
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+
+a { 
+    margin-top: 50px;
+}
+
+form {
+    padding-left: 85px;
+    padding-right: 85px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgb(209, 209, 209);
+    border-radius: 15px;
+}
