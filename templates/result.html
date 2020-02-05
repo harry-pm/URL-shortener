@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
 {% block body%}
+    {% if error %}
+    <p>{{ error }}</p>
+    {% else %}
     <a href="http://localhost:5000/{{ key }}">http://localhost:5000/{{ key }}</a>
+    {% endif %}
 {% endblock %}

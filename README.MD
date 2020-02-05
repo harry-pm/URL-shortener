@@ -19,6 +19,4 @@ A simple application which takes a long URL and returns a short one that provide
 
 # Potential improvements
 
-* If url submitted is invalid, return relevant error message when trying to access the page via short url provided
-
 * Testing

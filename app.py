@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect 
 from flask_sqlalchemy import SQLAlchemy
 import random_key
+import requests as http_requests
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///URLS.db'
@@ -23,19 +24,28 @@ def create_tables():
 def index():
     return render_template('index.html')
 
+def check_url(url):
+    try:
+        request = http_requests.get(url)
+    except:
+        return False
+    return True
+
 @app.route('/conversion', methods=['POST'])
 def conversion():
     long_url = request.form['input'].replace("http://", "")
     long_url = long_url.replace("https://", "")
     key = random_key.randomStringDigits(8)
     new_url = URL(long_url = long_url, key = key)
-
-    try:
-        db.session.add(new_url)
-        db.session.commit()
-        return render_template('result.html', key=new_url.key)
-    except:
-        return "There was an error converting your URL"
+    if check_url("http://" + long_url) == True:
+        try:
+            db.session.add(new_url)
+            db.session.commit()
+            return render_template('result.html', key=new_url.key)
+        except:
+            return "There was an error converting your URL"
+    else:
+        return render_template('result.html', error='This URL is not valid')
 
 @app.route('/<key>', methods=['GET'])
 def redirector(key):
