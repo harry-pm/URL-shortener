@@ -8,6 +8,12 @@ A simple application which takes a long URL and returns a short one that provide
 `export FLASP_APP=app.py`  
 `flask run`
 
+* To run tests (in the root directory) execute:
+`pytest`
+* To view coverage (ensuring you have pip installed coverage and are in the root directory) execute:
+`coverage run -m pytest`
+`coverage report`
+
 # User stroies 
 
 * As a user, I want to submit a URL in order to receive a shortened URL to the same webpage
@@ -16,7 +22,3 @@ A simple application which takes a long URL and returns a short one that provide
 
 * Flask
 * Python
-
-# Potential improvements
-
-* Testing
